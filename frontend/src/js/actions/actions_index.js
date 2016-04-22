@@ -11,3 +11,11 @@ export const getUserDetails = () => {
     payload: 'some user details'
   }
 }
+
+export const changeTitle = () => {
+  return {
+    type: CHANGE_TITLE,
+    payload: 'FAC7 Boiler Plate got Reduxed!'
+  }
+}
+
