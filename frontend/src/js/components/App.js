@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import Header from './Header/header_index.js'
 import Header from './../containers/Header/header_index.js'
 import Footer from './Footer/footer_index.js'
@@ -24,4 +23,8 @@ export default class App extends React.Component {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  children: React.PropTypes.element
 }
