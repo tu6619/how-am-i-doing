@@ -1,9 +1,11 @@
+// react modules
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import promise from 'redux-promise'
 import { Router, browserHistory } from 'react-router'
+// react files
 import reducers from './reducers/reducers_index.js'
 import Routes from './routes.js'
 
