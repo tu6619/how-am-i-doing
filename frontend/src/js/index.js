@@ -7,9 +7,13 @@ import { Router, browserHistory } from 'react-router'
 import reducers from './reducers/reducers_index.js'
 import Routes from './routes.js'
 
-const createStoreWithMiddleware = applyMiddleware(
-  promise
-)(createStore)
+const configureStore = (initialState) => {
+  return createStore(reducers, initialState, compose(
+    applyMiddleware(promise),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  ))
+}
+const store = configureStore()
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
