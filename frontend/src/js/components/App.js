@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header/header_index.js'
 import Header from './../containers/Header/header_index.js'
 import Footer from './Footer/footer_index.js'
 
