@@ -9,8 +9,9 @@ class Home extends React.Component {
     console.log(this.props)
     return (
       <Grid className='home'>
-        <h1>{this.props.title}</h1>
-        <Button onClick={this.props.changeTitle}>Click me</Button>
+        <h1>How am I doing?</h1>
+        <Button>LOG IN</Button>
+        <Button>SIGN UP</Button>
         <Row>
           <Col xs={12}>
             <div className='image-container'>
