@@ -48,9 +48,14 @@ const createDisaggregatedChartRenderer = type => (_data) => {
 
   const sortedQs = sortData(83749, _data)
   // get x and y vals for plot
-  const x = sortedQs.map((_, i) => i)
-  const ys = sortedQs.map(data => data.answers);
-  const plotData = ys.map((y, i) => ({x, y, type}))
+  const xAxis = sortedQs.map((_, i) => i)
+  const anwsers = sortedQs.map(data => data.answers)
+  const questionIndexes = anwsers[0].map((_, i) => i);
+  const ys = questionIndexes.map((questionIndex) =>
+    anwsers.map(answer => answer[questionIndex])
+  )
+
+  const plotData = ys.map((y, i) => ({x: xAxis, y, type}))
   // const scores = sortedQs.map((qs) => qs.answers.reduce((a, b) => a + b, 0))
 
   const layout = {
