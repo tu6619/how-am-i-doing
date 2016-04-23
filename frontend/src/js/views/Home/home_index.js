@@ -10,15 +10,13 @@ class Home extends React.Component {
     return (
       <Grid className='home'>
         <h1>How am I doing?</h1>
-        <a href='/user'><Button bsSize='large'>LOG IN</Button></a>
-        <Button bsSize='large'>SIGN UP</Button>
+        <a href='/user'><Button className='login' bsSize='large'>LOG IN</Button></a>
+        <Button className='signup' bsSize='large'>SIGN UP</Button>
         <Row>
           <Col xs={12}>
             <div className='image-container'>
-              <img src='img/rhino.png' />
+              <img className='logo' src='img/silouhette.jpg' />
             </div>
-            <p>Your app goes here...</p>
-            <a href='/login-with-twitter'>login with twitter</a>
           </Col>
         </Row>
       </Grid>
