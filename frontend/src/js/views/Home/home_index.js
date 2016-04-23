@@ -10,8 +10,8 @@ class Home extends React.Component {
     return (
       <Grid className='home'>
         <h1>How am I doing?</h1>
-        <Button>LOG IN</Button>
-        <Button>SIGN UP</Button>
+        <a href='/user'><Button bsSize='large'>LOG IN</Button></a>
+        <Button bsSize='large'>SIGN UP</Button>
         <Row>
           <Col xs={12}>
             <div className='image-container'>
