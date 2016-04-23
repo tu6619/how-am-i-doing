@@ -3,15 +3,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
+import { changeVizType } from '../../actions/actions_index.js'
 import { Grid, Row, Col, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap'
+import parseMap from './parsers.js'
 import axios from 'axios'
 
 class Viz extends React.Component {
+  constructor () {
+    super()
+    this.onClick = this.onClick.bind(this)
+  }
+
   componentDidMount () {
     axios.get('/data.json')
-      .then(parseData)
+      .then(parseMap[0])
       .catch((err) => console.log(err))
+  }
+
+  componentWillReceiveProps (nextProps) {
+    axios.get('/data.json')
+      .then(parseMap[nextProps.type])
+      .catch((err) => console.log(err))
+  }
+
+  onClick (i) {
+    this.props.changeVizType(i)
   }
 
   render () {
@@ -28,9 +44,9 @@ class Viz extends React.Component {
             <Col xs={6} xsOffset={3}>
               <ButtonToolbar>
                 <ButtonGroup>
-                  <Button bsStyle='primary'>Line Graph</Button>
-                  <Button bsStyle='primary'>Gauge Chart</Button>
-                  <Button bsStyle='primary'>Bar Chart</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick(0)}>Line Graph</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick(1)}>Gauge Chart</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick(2)}>Bar Chart</Button>
                 </ButtonGroup>
               </ButtonToolbar>
             </Col>
@@ -42,47 +58,17 @@ class Viz extends React.Component {
 }
 
 Viz.propTypes = {
-  title: React.PropTypes.string,
-  userDetails: React.PropTypes.string,
-  changeTitle: React.PropTypes.func
+  type: React.PropTypes.number
 }
 
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails,
-    title: state.changeTitle.title
+    type: state.changeVizType.vizType
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ changeTitle, getUserDetails }, dispatch)
+  return bindActionCreators({ changeVizType }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Viz)
-
-function parseData (_data) {
-  const data = _data.data
-  const user = data.users['83749'] // just get the only hardcoded user
-
-  const sortedQs = user.questionnaires
-    .sort((qsA, qsB) => {
-      const t0 = new Date(qsA.date)
-      const t1 = new Date(qsB.date)
-      return t0 - t1
-    })
-    .map((qsId) => data.questionnaires[qsId])
-
-  const scores = sortedQs.map((qs) => qs.answers.reduce((a, b) => a + b, 0))
-  const x = sortedQs.map((_, i) => i)
-
-  try {
-    // debugger
-    Plotly.newPlot('visualisation', [ {
-      x: x,
-      y: scores,
-      type: 'scatter'
-    } ])
-  } catch (e) {
-    console.log('ERR', e)
-  }
-}
