@@ -19,7 +19,7 @@ class User extends React.Component {
             <Button className='visualise' bsSize='large'>VISUALISE</Button>
           </Col>
           <Col sm={6} md={3}>
-            <Button className='questionnaire' bsSize='large'>QUESTIONNAIRE</Button>
+            <a href='/questionnaire'><Button className='questionnaire' bsSize='large'>QUESTIONNAIRE</Button></a>
           </Col>
         </Row>
       </Grid>
