@@ -1,13 +1,16 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { getUserDetails } from '../../actions/actions_index.js'
+import { bindActionCreators } from 'redux'
+import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
 
 class Home extends React.Component {
   render () {
     console.log(this.props)
     return (
       <Grid className='home'>
+        <h1>{this.props.title}</h1>
+        <Button onClick={this.props.changeTitle}>Click me</Button>
         <Row>
           <Col xs={12}>
             <div className='image-container'>
@@ -22,10 +25,19 @@ class Home extends React.Component {
   }
 }
 
+Home.propTypes = {
+  title: React.PropTypes.string,
+  userDetails: React.PropTypes.string,
+  changeTitle: React.PropTypes.func
+}
+
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails
+    userDetails: state.userDetails,
+    title: state.changeTitle.title
   }
 }
 
-export default connect(mapStateToProps, { getUserDetails })(Home)
+const mapDispatchToProps = (dispatch) => bindActionCreators({changeTitle, getUserDetails}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
