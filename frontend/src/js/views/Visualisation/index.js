@@ -5,48 +5,61 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeVizType } from '../../actions/actions_index.js'
 import { Grid, Row, Col, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap'
-import parseMap from './parsers.js'
+import Chart from '../../components/chart.js';
 import axios from 'axios'
+
 
 class Viz extends React.Component {
   constructor () {
     super()
+
+    this.state = {
+      data: null
+    }
+
     this.onClick = this.onClick.bind(this)
   }
 
   componentDidMount () {
     axios.get('/data.json')
-      .then(parseMap[0])
-      .catch((err) => console.log(err))
+      .then((data) => {
+        console.log('data recieved');
+        this.setState({data})
+        console.log('set state success');
+      })
+      .catch((err) => {throw err})
   }
+  //
+  // componentWillReceiveProps (nextProps) {
+  //   axios.get('/data.json')
+  //     .then(parseMap[nextProps.type])
+  //     .catch((err) => console.log(err))
+  // }
 
-  componentWillReceiveProps (nextProps) {
-    axios.get('/data.json')
-      .then(parseMap[nextProps.type])
-      .catch((err) => console.log(err))
-  }
-
-  onClick (i) {
-    this.props.changeVizType(i)
+  onClick (chartType) {
+    this.props.changeVizType(chartType)
   }
 
   render () {
+    const { data } = this.state
+    const { type: chartType } = this.props
+    console.log('rendering container');
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Your Outcomes Data</h1>
         <Grid>
           <Row>
             <Col xs={8} xsOffset={2}>
-              <div id='visualisation'></div>
+              <Chart {...{data, chartType}} />
             </Col>
           </Row>
           <Row>
             <Col xs={6} xsOffset={3}>
               <ButtonToolbar>
                 <ButtonGroup>
-                  <Button bsStyle='primary' onClick={() => this.onClick(0)}>Line Graph</Button>
-                  <Button bsStyle='primary' onClick={() => this.onClick(1)}>Gauge Chart</Button>
-                  <Button bsStyle='primary' onClick={() => this.onClick(2)}>Bar Chart</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick('scatter')}>Line Graph</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick('disaggregated')}>Gauge Chart</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick('bar')}>Bar Chart</Button>
                 </ButtonGroup>
               </ButtonToolbar>
             </Col>
