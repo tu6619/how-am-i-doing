@@ -5,7 +5,7 @@ import toggleMenu from './reducer_toggleMenu.js'
 import changeTitle from './reducer_changeTitle.js'
 
 const rootReducer = combineReducers({
-  userDetails
+  userDetails,
   toggleMenu,
   changeTitle,
   routing: routerReducer
