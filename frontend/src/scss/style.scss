@@ -16,6 +16,10 @@ body {
   margin: 2em;
 }
 
+.logo {
+  border-radius: 50%;
+}
+
 .home {
   text-align: center;
 }
@@ -28,7 +32,23 @@ body {
   float: right;
 }
 
+.start-questionnaire {
+  text-align: center;
+}
+
+.start {
+  text-align: right;
+}
+
+.login {
+  float: right;
+}
+
 .visualise {
+  float: left;
+}
+
+.signup {
   float: left;
 }
 
