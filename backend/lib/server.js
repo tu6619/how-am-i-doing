@@ -17,12 +17,13 @@ const ReactUrls = require('./routes/ReactUrls.js')
 const Scripts = require('./routes/Scripts.js')
 const Login = require('./routes/Login.js')
 const UserRequest = require('./routes/TwitterUserRequest.js')
+const Data = require('./routes/data.js')
 
 // auth strategies
 const authStrategies = require('./authStrategies/twitterAuthStrategies.js')
 
 const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Login, Images, ReactUrls, Scripts, Hello, UserRequest ]
+const Routes = [ Login, Images, ReactUrls, Scripts, Hello, UserRequest, Data ]
 
 module.exports = (client) => {
 

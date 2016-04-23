@@ -1,0 +1,86 @@
+{
+  "users": {
+    "83749": {
+      "username": "sally",
+      "questionnaires": ["1", "2", "3", "4", "5", "6"],
+      "gender": "female",
+      "dob": "1995-04-24T00:00:00"
+    }
+  },
+
+  "questionnaires": {
+    "1": {
+      "date": "2016-01-22T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [0, 2, 1, 3, 3, 2, 2, 2, 1, 0]
+    },
+    "2": {
+      "date": "2016-02-01T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [0, 2, 2, 2, 1, 0, 3, 2, 3, 0]
+    },
+    "3": {
+      "date": "2016-02-14T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [0, 1, 1, 1, 0, 2, 2, 3, 1, 0]
+    },
+    "4": {
+      "date": "2016-01-22T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [1, 1, 3, 2, 2, 2, 0, 0, 2, 3]
+    },
+    "5": {
+      "date": "2016-02-01T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [1, 2, 3, 0, 0, 0, 0, 0, 3, 0]
+    },
+    "6": {
+      "date": "2016-02-14T00:00:00",
+      "questions": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "answers": [0, 1, 1, 3, 3, 2, 2, 3, 1, 3]
+    }
+  },
+
+  "questions": {
+    "0": {
+      "txt": "I feel sad or empty ...",
+      "category": "depression"
+    },
+    "1": {
+      "txt": "Nothing is fun much anymore ...",
+      "category": "depression"
+    },
+    "2": {
+      "txt": "I have trouble sleeping ...",
+      "category": "depression"
+    },
+    "3": {
+      "txt": "I have problems with my appetite ...",
+      "category": "depression"
+    },
+    "4": {
+      "txt": "I have no energy for things ...",
+      "category": "depression"
+    },
+    "5": {
+      "txt": "I am tired a lot ...",
+      "category": "depression"
+    },
+    "6": {
+      "txt": "I cannot think clearly ...",
+      "category": "depression"
+    },
+    "7": {
+      "txt": "I feel worthless ...",
+      "category": "depression"
+    },
+    "8": {
+      "txt": "I feel like I don't want to move ...",
+      "category": "depression"
+    },
+    "9": {
+      "txt": "I feel restless ...",
+      "category": "depression"
+    }
+  }
+}
