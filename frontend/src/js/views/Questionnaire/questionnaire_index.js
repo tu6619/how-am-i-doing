@@ -52,13 +52,17 @@ class Questionnaire extends React.Component {
   }
 
   send () {
-    const data = {
+    Axios.post('/data.json', {
       questions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      answers: this.state.answers
-    }
-    Axios.post('/data.json', { data })
+      answers: this.state.answers.concat([this.state.radioClicked])
+    })
       .then((data) => {
         console.log(data)
+        this.setState({
+          modalNumber: this.state.modalNumber + 1,
+          answers: data.answers,
+          showModal: false
+        })
       })
       .catch((err) => console.log(err))
   }
