@@ -49,6 +49,7 @@ class Viz extends React.Component {
                   <Button bsStyle='primary' onClick={() => this.onClick('scatter')}>Line Graph</Button>
                   <Button bsStyle='primary' onClick={() => this.onClick('disaggregated')}>Stacked Bar Chart</Button>
                   <Button bsStyle='primary' onClick={() => this.onClick('bar')}>Bar Chart</Button>
+                  <Button bsStyle='primary' onClick={() => this.onClick('filledArea')}>Stacked Area Chart</Button>
                 </ButtonGroup>
               </ButtonToolbar>
             </Col>
