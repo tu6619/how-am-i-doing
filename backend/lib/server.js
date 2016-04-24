@@ -1,30 +1,58 @@
 require('env2')('./config.env')
 
+const fs = require('fs')
+const path = require('path')
 const Hapi = require('hapi')
+
+const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data.json'), 'utf8'))
 
 // helper methods
 const handlePlugins = require('./helpers/server-helpers.js')
 
 // server plugins
 const Inert = require('inert')
-const Bell = require('bell')
-const AuthCookie = require('hapi-auth-cookie')
 
 // server routes
 const Hello = require('./routes/Hello.js')
 const Images = require('./routes/Images.js')
 const ReactUrls = require('./routes/ReactUrls.js')
 const Scripts = require('./routes/Scripts.js')
-const Login = require('./routes/Login.js')
-const UserRequest = require('./routes/TwitterUserRequest.js')
 
-// auth strategies
-const authStrategies = require('./authStrategies/twitterAuthStrategies.js')
+const get = {
+  path: '/data.json',
+  method: 'GET',
+  handler: (response, reply) => reply(data)
+}
 
-const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Login, Images, ReactUrls, Scripts, Hello, UserRequest ]
+const post = {
+  path: '/data.json',
+  method: 'POST',
+  handler: (req, reply) => {
+    const payload = req.payload
+    console.log(payload)
 
-module.exports = (client) => {
+    const newKey = Object.keys(data.questionnaires)
+      .map((k) => +k).sort().slice(-1)[0] + 1
+
+    const now = new Date(Date.now())
+    payload.date = now.toISOString()
+
+    const hasQuestions = payload.questions && payload.questions instanceof Array
+    const hasAnswers = payload.answers && payload.answers instanceof Array
+
+    if (hasQuestions && hasAnswers) {
+      data.questionnaires[newKey] = payload
+      data.users[83749].questionnaires.push(newKey) // just add to hardcoded user
+      reply({ success: true, data })
+    } else {
+      reply({ success: false, data })
+    }
+  }
+}
+
+module.exports = () => {
+  const Plugins = [ Inert ]
+  const Routes = [ Images, ReactUrls, Scripts, Hello, get, post ]
 
   const server = new Hapi.Server()
 
@@ -36,8 +64,6 @@ module.exports = (client) => {
   })
 
   server.register(Plugins, handlePlugins)
-  server.auth.strategy('twitter', 'bell', authStrategies.TwitterOauth)
-  server.auth.strategy('session', 'cookie', authStrategies.TwitterCookie)
   server.route(Routes)
 
   return server
