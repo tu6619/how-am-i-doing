@@ -1,5 +1,3 @@
-# hackathon boilerplate
-
 How Am I Doing ReadMe v1.0
 
 Vision:
@@ -38,3 +36,4 @@ What we would like this App will do in the future?
 Young People’s Decision Making Capacity and Data Management.
 •	How can parents, clinicians and young people negotiate who should be in charge of this data given legislation on parental responsibility and Fraser guidelines on decision capacity of young people?
 •	How should risk be communicated, if detected in the use of this app.  To whom should it be communicated: YP, parent clinician?
+>>>>>>> 1ed1645e2af979e65a2909cf5d44f2c46edbf901
