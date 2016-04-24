@@ -16,11 +16,6 @@ class Header extends React.Component {
           className='top-menu'
           fixedTop={true}>
           <Navbar.Header>
-            <Navbar.Brand>
-              <Link to={'/'}>
-                <img src={this.props.logoUrl}></img>
-              </Link>
-            </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse pullRight>

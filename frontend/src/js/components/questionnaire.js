@@ -1,7 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 // import ReactDOM from 'react-dom'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, ButtonGroup, Row } from 'react-bootstrap'
 
 class Questionnaire extends React.Component {
   constructor () {
@@ -80,7 +80,7 @@ class Questionnaire extends React.Component {
     const submitDisabled = !(typeof radioClicked === 'number')
     return (
     <div>
-      <Button className='login-page-button' bsSize='large' onClick={this.open}>
+      <Button className='centre-button' bsSize='large' onClick={this.open}>
         QUESTIONNAIRE
       </Button>
       <Modal show={this.state.showModal} onHide={this.close}>
@@ -89,45 +89,43 @@ class Questionnaire extends React.Component {
             {questions[this.state.modalNumber]}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-        <form>
-          <input
-            id='a'
-            type='radio'
-            onClick={() => {
-              clickRadio(0)
-              clear()
-            }
-          }
-            /> Never <br />
-          <input
-            id='b'
-            type='radio'
-            onClick={() => {
-              clickRadio(1)
-              clear()
-            }
-          }
-          /> Sometimes <br />
-          <input
-            id='c'
-            type='radio'
-            onClick={() => {
-              clickRadio(2)
-              clear()
-            }
-          }
-          /> Often <br />
-          <input
-            id='d'
-            type='radio'
-            onClick={() => {
-              clickRadio(3)
-              clear()
-            }
-          }
-          /> Always <br />
-        </form>
+        <Modal.Body className='centre-button'>
+          <ButtonGroup className='centre-button'>
+            <Button
+              id='a'
+              className="centre-button"
+              onClick={() => {
+                clickRadio(0)
+              }}
+            >
+                Never
+            </Button>
+            <Button
+              id='a'
+              onClick={() => {
+                clickRadio(1)
+              }}
+            >
+                Sometimes
+            </Button>
+            <Button
+              id='a'
+              onClick={() => {
+                clickRadio(2)
+              }}
+            >
+                Often
+            </Button>
+            <Button
+              id='a'
+              onClick={() => {
+                clickRadio(3)
+              }}
+            >
+                Always
+            </Button>
+        </ButtonGroup>
+
         </Modal.Body>
         <Modal.Footer>
           {this.state.modalNumber === questions.length - 1 ? (
@@ -152,5 +150,13 @@ class Questionnaire extends React.Component {
     )
   }
 }
+
+// const cl = (fn) => (e) => {e.preventDefault(); fn ? fn() : null}
+//
+// const Input = ({checked, onClick}) => checked ? (
+//   <input type = "radio" checked onChange = { cl(onClick) } />
+// ) : (
+//   <input type = "radio" onChange = {  cl(onClick) } />
+// );
 
 export default Questionnaire

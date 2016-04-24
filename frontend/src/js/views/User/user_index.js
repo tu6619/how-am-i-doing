@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
 import Questionnaire from '../../components/questionnaire.js'
+import { Link } from 'react-router'
+
 
 class User extends React.Component {
   render () {
@@ -19,7 +21,7 @@ class User extends React.Component {
         <br />
         <Row>
           <Col>
-            <a href='/viz'><Button className='login-page-button' bsSize='large'>VISUALISE</Button></a>
+            <Link to='/viz'><Button className='centre-button' bsSize='large'>VISUALISE</Button></Link>
           </Col>
         </Row>
       </Grid>

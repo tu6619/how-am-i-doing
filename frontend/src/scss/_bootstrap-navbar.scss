@@ -1,5 +1,9 @@
 @import 'variables';
 
+body {
+  background-color: $light-blue;
+}
+
 .header-spacing {
   height: $header-height;
 }
@@ -10,6 +14,10 @@
 
 // navbar Button
 
+button {
+  background-color: $violet;
+}
+
 .navbar-toggle {
   border: none;
   transition: 0.3s ease;
@@ -19,7 +27,7 @@
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
+  background-color: $dark-blue;
   width: 25px;
   height: 3px;
 }
@@ -35,7 +43,7 @@
 // top navigation / header
 
 .top-menu {
-  background-color: $header-color;
+  background-color: $dark-blue;
   border: none;
   border-radius: 0;
 
@@ -62,7 +70,7 @@
 .user-logged-in {
   position: absolute;
   margin-top: 15px;
-  color: $grey-blue;
+  color: $pastel-blue;
 }
 
 // footer
@@ -73,7 +81,7 @@
   position: absolute;
   width: 100%;
   bottom: 0;
-  background-color: $footer-color;
+  background-color: $dark-blue;
 
   .navbar-header,
   .navbar-right li {
