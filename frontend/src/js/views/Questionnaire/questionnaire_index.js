@@ -78,8 +78,8 @@ class Questionnaire extends React.Component {
     const { radioClicked } = this.state
     return (
     <div>
-      <Button className='start-questionnaire' bsStyle='primary' bsSize='large' onClick={this.open}>
-        Start
+      <Button className='login-page-button' bsSize='large' onClick={this.open}>
+        QUESTIONNAIRE
       </Button>
       <Modal show={this.state.showModal} onHide={this.close}>
         <Modal.Header closeButton>
@@ -92,7 +92,6 @@ class Questionnaire extends React.Component {
           <input
             id='a'
             type='radio'
-            name='gender'
             onClick={() => {
               clickRadio(0)
               clear()
@@ -102,7 +101,6 @@ class Questionnaire extends React.Component {
           <input
             id='b'
             type='radio'
-            name='gender'
             onClick={() => {
               clickRadio(1)
               clear()
@@ -112,7 +110,6 @@ class Questionnaire extends React.Component {
           <input
             id='c'
             type='radio'
-            name='gender'
             onClick={() => {
               clickRadio(2)
               clear()
@@ -122,7 +119,6 @@ class Questionnaire extends React.Component {
           <input
             id='d'
             type='radio'
-            name='gender'
             onClick={() => {
               clickRadio(3)
               clear()

@@ -3,6 +3,7 @@ import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
+import Questionnaire from '../Questionnaire/questionnaire_index.js'
 
 class User extends React.Component {
   render () {
@@ -10,16 +11,15 @@ class User extends React.Component {
       <Grid className='user'>
         <h1>How am I doing?</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
         <Row>
-          <Col >
-            <Button className='visualise' bsSize='large'>VISUALISE</Button>
+          <Col>
+            <Questionnaire />
           </Col>
-          <Col >
-            <a href='/questionnaire'><Button className='questionnaire' bsSize='large'>QUESTIONNAIRE</Button></a>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <a href='/viz'><Button className='login-page-button' bsSize='large'>VISUALISE</Button></a>
           </Col>
         </Row>
       </Grid>
