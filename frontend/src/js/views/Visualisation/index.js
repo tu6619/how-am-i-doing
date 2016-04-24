@@ -81,9 +81,9 @@ class Viz extends React.Component {
                   <Button
                     bsStyle='primary'
                     bsSize='small'
-                    onClick={() => this.onClick('disaggregated')}
+                    onClick={() => this.onClick('filledArea')}
                   >
-                    Bar Chart
+                    Area Chart
                   </Button>
                 </ButtonGroup>
               </ButtonToolbar>
