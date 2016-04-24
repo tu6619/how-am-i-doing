@@ -41,6 +41,8 @@
     }
   },
 
+  "boundaries": [14, 16],
+
   "questions": {
     "0": {
       "txt": "I feel sad or empty ...",
