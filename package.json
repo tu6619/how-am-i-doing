@@ -7,7 +7,7 @@
     "nodemon": "nodemon backend/lib/index.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
     "watch": "webpack --watch --progress",
-    "prestart": "npm run server-build && webpack --progress --config webpack.config.js",
+    "prestart": "webpack --progress --config webpack.config.js",
     "start": "node ./backend/lib/index.js",
     "pretest": "npm run server-build",
     "test": "node ./backend/lib/tests/runner.js"
@@ -23,6 +23,15 @@
   },
   "homepage": "https://github.com/andrewMacmurray/hackathon-boilerplate#readme",
   "devDependencies": {
+    "eslint": "^2.8.0",
+    "eslint-plugin-react": "^5.0.1",
+    "nodemon": "^1.9.1",
+    "tape": "^4.5.1",
+    "webpack-dev-server": "^1.14.1",
+    "wrapping-tape": "0.0.3"
+  },
+  "dependencies": {
+    "react-hot-loader": "^1.3.0",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
@@ -30,19 +39,10 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
     "css-loader": "^0.23.1",
-    "eslint": "^2.8.0",
-    "eslint-plugin-react": "^5.0.1",
-    "nodemon": "^1.9.1",
     "path": "^0.12.7",
-    "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
-    "tape": "^4.5.1",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1",
-    "wrapping-tape": "0.0.3"
-  },
-  "dependencies": {
     "axios": "^0.9.1",
     "bell": "^7.3.0",
     "bluebird": "^3.3.4",
