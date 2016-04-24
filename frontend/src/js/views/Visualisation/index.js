@@ -33,7 +33,6 @@ class Viz extends React.Component {
   render () {
     const { data } = this.state
     const { type: chartType } = this.props
-    console.log('rendering container')
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Your Outcomes Data</h1>
