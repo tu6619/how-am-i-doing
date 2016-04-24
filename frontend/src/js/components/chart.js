@@ -101,13 +101,27 @@ const createDisaggregatedChartRenderer = type => (_data) => {
       aners.map(answer => answer[questionIndex])
     )
 
-    const plotData = ys.map((y) => ({ x: xAxis, y, type }))
+    const plotData = ys.map((y) => ({
+      x: xAxis,
+      y,
+      type,
+      name: 'Qu. ' + ys.indexOf(y)
+    }))
     // const scores = sortedQs.map((qs) => qs.answers.reduce((a, b) => a + b, 0))
 
     const boundaryData = makeBoundaryData(xAxis, _data.data)
 
     const layout = {
-      barmode: 'stack'
+      barmode: 'stack',
+      showlegend: false,
+      xaxis: {
+        title: 'Session number',
+        autotick: false,
+        ticks: 'outside',
+        tick0: 0,
+        dtick: 1,
+      },
+      yaxis: { title: 'Score' }
     }
 
     // try to plot
@@ -132,7 +146,8 @@ const createDisaggregatedChartRenderer = type => (_data) => {
       y,
       type,
       fill: 'tonextx',
-      mode: 'none'
+      mode: 'none',
+      name: 'Qu. ' + ys.indexOf(y)
     }))
 
     function stackedArea(plotData) {
@@ -145,7 +160,16 @@ const createDisaggregatedChartRenderer = type => (_data) => {
     }
 
     const layout = {
-      barmode: 'stack'
+      barmode: 'stack',
+      showlegend: false,
+      xaxis: {
+        title: 'Session number',
+        autotick: false,
+        ticks: 'outside',
+        tick0: 0,
+        dtick: 1,
+      },
+      yaxis: { title: 'Score' }
     }
 
     // try to plot
