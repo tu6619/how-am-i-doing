@@ -5,13 +5,15 @@ import App from './components/App.js'
 import Home from './views/Home/home_index.js'
 import About from './views/About/about_index.js'
 import Contact from './views/Contact/contact_index.js'
+import User from './views/User/user_index.js'
 import Viz from './views/Visualisation/index.js'
 
 export default (
   <Route path='/' component={App}>
     <IndexRoute component={Home} />
-    <Route path='/about' component={About} />
-    <Route path='/contact' component={Contact} />
-    <Route path='/viz' component={Viz} />
+    <Route path='about' component={About} />
+    <Route path='contact' component={Contact} />
+    <Route path='user' component={User} />
+    <Route path='viz' component={Viz} />
   </Route>
 )
