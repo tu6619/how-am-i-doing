@@ -1,4 +1,4 @@
-/* global Plotly */
+/* global d3, Plotly */
 import React from 'react'
 
 const makeBoundaryData = (x, data) => {
@@ -58,9 +58,33 @@ const createAggregatedChartRenderer = chartType => (_data) => {
 
   const boundaryData = makeBoundaryData(x, _data.data)
 
+  const WIDTH = 150
+  const HEIGHT = 100
+
+  const gd = document.getElementById('visualisation')
+  gd.style.width = WIDTH + '%'
+  gd.style.height = HEIGHT + '%'
+  gd.style['margin-left'] = (100 - WIDTH) / 2 + '%'
+  gd.style['margin-top'] = (100 - HEIGHT) / 2 + '%'
+
+  const layout = {
+    showlegend: false,
+    xaxis: {
+      title: 'Session number',
+      autotick: false,
+      ticks: 'outside',
+      tick0: 0,
+      dtick: 1,
+    },
+    yaxis: { title: 'Score' }
+  }
+
   // try to plot
   try {
-    Plotly.newPlot('visualisation', boundaryData.concat([ plotData ]))
+    Plotly.newPlot(gd, boundaryData.concat([ plotData ]), layout)
+    window.onresize = function () {
+      Plotly.Plots.resize(gd)
+    }
   } catch (e) {
     console.log('ERR', e)
   }
