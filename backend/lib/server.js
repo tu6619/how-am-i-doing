@@ -66,13 +66,5 @@ module.exports = () => {
   server.register(Plugins, handlePlugins)
   server.route(Routes)
 
-  server.route({
-    path: '/',
-    method: 'GET',
-    handler: {
-      file: path.join(__dirname, '../../public/index.html')
-    }
-  })
-
   return server
 }
