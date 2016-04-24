@@ -131,7 +131,7 @@ const createDisaggregatedChartRenderer = type => (_data) => {
       x: xAxis,
       y,
       type,
-      fill: 'tonexty',
+      fill: 'tonextx',
       mode: 'none'
     }))
 
