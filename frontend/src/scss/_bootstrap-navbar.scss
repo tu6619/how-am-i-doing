@@ -1,9 +1,5 @@
 @import 'variables';
 
-body {
-  background-color: $light-blue;
-}
-
 .header-spacing {
   height: $header-height;
 }
@@ -15,7 +11,7 @@ body {
 // navbar Button
 
 button {
-  background-color: $violet;
+  // background-color: $violet;
 }
 
 .navbar-toggle {

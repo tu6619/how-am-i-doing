@@ -9,11 +9,23 @@ html {
 body {
   font-family: $main-font;
   margin-bottom: $footer-height;
+  background-color: $pastel-blue;
 }
 
 .about h3 {
   text-align: center;
   margin: 2em;
+}
+
+.svg-container {
+  background-color: rgba(0, 0, 0, 0);
+  main-svg {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+svg {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .logo {
@@ -30,6 +42,10 @@ body {
 
 .questionnaire {
   float: right;
+}
+
+.btn {
+  // color: $orange !important;
 }
 
 .centre-button {

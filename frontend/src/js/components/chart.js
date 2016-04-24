@@ -69,6 +69,7 @@ const createAggregatedChartRenderer = chartType => (_data) => {
 
   const layout = {
     showlegend: false,
+    plot_bgcolor : 'rgba(1, 1, 1, 0)',
     xaxis: {
       title: 'Session number',
       autotick: false,
@@ -114,6 +115,7 @@ const createDisaggregatedChartRenderer = type => (_data) => {
     const layout = {
       barmode: 'stack',
       showlegend: false,
+      plot_bgcolor: 'rgba(0, 0, 0, 0)',
       xaxis: {
         title: 'Session number',
         autotick: false,
@@ -162,6 +164,7 @@ const createDisaggregatedChartRenderer = type => (_data) => {
     const layout = {
       barmode: 'stack',
       showlegend: false,
+      plot_bgcolor: 'rgba(0, 0, 0, 0)',
       xaxis: {
         title: 'Session number',
         autotick: false,
