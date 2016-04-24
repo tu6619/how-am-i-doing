@@ -34,7 +34,7 @@ class Viz extends React.Component {
     const { data } = this.state
     const { type: chartType } = this.props
     return (
-      <div>
+      <div style={{ marginBottom: '120px' }}>
         <h1 style={{ textAlign: 'center' }}>Your Outcomes Data</h1>
         <Grid>
           <Row>
@@ -42,13 +42,48 @@ class Viz extends React.Component {
               <Chart {...{ data, chartType }} />
             </Col>
           </Row>
-          <Row>
+          <Row style={{ marginBottom: '1em' }}>
+            <p style={{ textAlign: 'center' }}>Aggregated Plots</p>
             <Col xs={6} xsOffset={3}>
               <ButtonToolbar>
                 <ButtonGroup>
-                  <Button bsStyle='primary' onClick={() => this.onClick('scatter')}>Line Graph</Button>
-                  <Button bsStyle='primary' onClick={() => this.onClick('disaggregated')}>Stacked Bar Chart</Button>
-                  <Button bsStyle='primary' onClick={() => this.onClick('bar')}>Bar Chart</Button>
+                  <Button
+                    bsStyle='primary'
+                    bsSize='small'
+                    onClick={() => this.onClick('scatter')}
+                  >
+                    Line Graph
+                  </Button>
+                  <Button
+                    bsStyle='primary'
+                    bsSize='small'
+                    onClick={() => this.onClick('bar')}
+                  >
+                    Bar Chart
+                  </Button>
+                </ButtonGroup>
+              </ButtonToolbar>
+            </Col>
+          </Row>
+          <Row>
+            <p style={{ textAlign: 'center' }}>Disaggregated Plots</p>
+            <Col xs={6} xsOffset={3}>
+              <ButtonToolbar>
+                <ButtonGroup>
+                  <Button
+                    bsStyle='primary'
+                    bsSize='small'
+                    onClick={() => this.onClick('disaggregated')}
+                  >
+                    Bar Chart
+                  </Button>
+                  <Button
+                    bsStyle='primary'
+                    bsSize='small'
+                    onClick={() => this.onClick('disaggregated')}
+                  >
+                    Bar Chart
+                  </Button>
                 </ButtonGroup>
               </ButtonToolbar>
             </Col>
@@ -58,6 +93,7 @@ class Viz extends React.Component {
     )
   }
 }
+
 
 Viz.propTypes = {
   type: React.PropTypes.number
