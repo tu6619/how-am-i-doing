@@ -49,6 +49,7 @@ const createAggregatedChartRenderer = chartType => (_data) => {
   const x = sortedQs.map((_, i) => i)
   const scores = sortedQs.map((qs) => qs.answers.reduce((a, b) => a + b, 0))
   const plotData = {
+    plot_bgcolor: 'rgba(0, 0, 0, 0)',
     x: x,
     y: scores,
     type: chartType,
@@ -69,6 +70,7 @@ const createAggregatedChartRenderer = chartType => (_data) => {
 
   const layout = {
     showlegend: false,
+    plot_bgcolor : 'rgba(1, 1, 1, 0)',
     xaxis: {
       title: 'Session number',
       autotick: false,
@@ -107,7 +109,8 @@ const createDisaggregatedChartRenderer = type => (_data) => {
   const boundaryData = makeBoundaryData(xAxis, _data.data)
 
   const layout = {
-    barmode: 'stack'
+    barmode: 'stack',
+    plot_bgcolor : 'rgba(255, 255, 255, 0)'
   }
 
   // try to plot
