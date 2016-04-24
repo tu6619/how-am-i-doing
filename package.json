@@ -7,7 +7,7 @@
     "nodemon": "nodemon backend/lib/index.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
     "watch": "webpack --watch --progress",
-    "prestart": "npm run server-build && webpack --progress --config webpack.config.js",
+    "prestart": "webpack --progress --config webpack.config.js",
     "start": "node ./backend/lib/index.js",
     "pretest": "npm run server-build",
     "test": "node ./backend/lib/tests/runner.js"
