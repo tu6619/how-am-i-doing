@@ -21,7 +21,7 @@ class User extends React.Component {
         <br />
         <Row>
           <Col>
-            <Link to='/viz'><Button className='login-page-button' bsSize='large'>VISUALISE</Button></Link>
+            <Link to='/viz'><Button className='centre-button' bsSize='large'>VISUALISE</Button></Link>
           </Col>
         </Row>
       </Grid>
