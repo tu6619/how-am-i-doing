@@ -5,7 +5,7 @@ import Footer from './Footer/footer_index.js'
 import '../../scss/style.scss'
 
 const options = {
-  logoUrl: 'img/rhino.png'
+  logoUrl: 'img/silouhette.jpg'
 }
 
 export default class App extends React.Component {
@@ -18,7 +18,7 @@ export default class App extends React.Component {
         />
         <div className='header-spacing'></div>
           {this.props.children}
-        <Footer logoUrl={options.logoUrl} />
+        <Footer />
       </div>
     )
   }
