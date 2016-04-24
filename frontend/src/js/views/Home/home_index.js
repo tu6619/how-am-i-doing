@@ -3,6 +3,7 @@ import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
+import { Link } from 'react-router'
 
 class Home extends React.Component {
   render () {
@@ -10,7 +11,7 @@ class Home extends React.Component {
     return (
       <Grid className='home'>
         <h1>How am I doing?</h1>
-        <a href='/user'><Button className='login' bsSize='large'>LOG IN</Button></a>
+        <Link to='/user'><Button className='login' bsSize='large'>LOG IN</Button></Link>
         <Button className='signup' bsSize='large'>SIGN UP</Button>
         <Row>
           <Col xs={12}>
