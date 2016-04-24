@@ -35,7 +35,9 @@ class Viz extends React.Component {
 
     return (
       <div style={{ marginBottom: '120px' }}>
-        <h1 style={{ textAlign: 'center' }}>Your Outcomes Data</h1>
+        <div style={{ textAlign: 'center', width: '80%', margin: '0 auto' }}>
+          <h1>Your Outcomes Data</h1>
+        </div>
         <Warning data={data} />
         <Grid>
           <Row>

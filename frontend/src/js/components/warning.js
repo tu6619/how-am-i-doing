@@ -32,12 +32,14 @@ export default class Warning extends React.Component {
 
 const divStyles = {
   opacity: '0.8',
-  backgroundColor: '#DA6E64',
-  border: '1px solid #DA6E64',
-  color: 'white',
+  backgroundColor: 'white',
+  border: '1px solid black',
+  color: 'black',
   borderRadius: '5px',
-  width: '60%',
-  margin: '0 auto',
+  width: '80%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginBottom: '20px',
   padding: '10px',
   textAlign: 'center',
 }
