@@ -4,6 +4,7 @@
   "description": "Some boilerplate to get us off to a quick start at hackathons",
   "main": "index.js",
   "scripts": {
+    "dev:serve": "nodemon backend/lib/index.js & node dev_server",
     "nodemon": "nodemon backend/lib/index.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
     "watch": "webpack --watch --progress",
