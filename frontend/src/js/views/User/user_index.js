@@ -3,7 +3,7 @@ import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUserDetails, changeTitle } from '../../actions/actions_index.js'
-import Questionnaire from '../Questionnaire/questionnaire_index.js'
+import Questionnaire from '../../components/questionnaire.js'
 
 class User extends React.Component {
   render () {

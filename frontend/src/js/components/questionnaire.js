@@ -32,7 +32,8 @@ class Questionnaire extends React.Component {
     const modalNumber = this.state.modalNumber
     this.setState({
       answers: this.state.answers.concat([this.state.radioClicked]),
-      modalNumber: modalNumber + 1
+      modalNumber: modalNumber + 1,
+      radioClicked: false
     })
   }
 
@@ -76,6 +77,7 @@ class Questionnaire extends React.Component {
     const { clickRadio } = this
     const { clear } = this
     const { radioClicked } = this.state
+    const submitDisabled = !(typeof radioClicked === 'number')
     return (
     <div>
       <Button className='login-page-button' bsSize='large' onClick={this.open}>
@@ -129,11 +131,18 @@ class Questionnaire extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           {this.state.modalNumber === questions.length - 1 ? (
-            <Button id='clear-button' onClick={this.send}>
+            <Button
+              id='clear-button'
+              onClick={this.send}
+              disabled={submitDisabled}
+            >
               Submit
             </Button>
           ) : (
-            <Button id='clear-button' onClick={this.next}>
+            <Button id='clear-button'
+              onClick={this.next}
+              disabled={submitDisabled}
+            >
               Next
             </Button>
           )}
