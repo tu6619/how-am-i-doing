@@ -1,13 +1,12 @@
 /* global Plotly */
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeVizType } from '../../actions/actions_index.js'
 import { Grid, Row, Col, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap'
 import Chart from '../../components/chart.js'
+import Warning from '../../components/warning.js'
 import axios from 'axios'
-
 
 class Viz extends React.Component {
   constructor () {
@@ -33,9 +32,13 @@ class Viz extends React.Component {
   render () {
     const { data } = this.state
     const { type: chartType } = this.props
+
     return (
       <div style={{ marginBottom: '120px' }}>
-        <h1 style={{ textAlign: 'center' }}>Your Outcomes Data</h1>
+        <div style={{ textAlign: 'center', width: '80%', margin: '0 auto' }}>
+          <h1>Your Outcomes Data</h1>
+        </div>
+        <Warning data={data} />
         <Grid>
           <Row>
             <Col xs={8} xsOffset={2}>
@@ -80,9 +83,9 @@ class Viz extends React.Component {
                   <Button
                     bsStyle='primary'
                     bsSize='small'
-                    onClick={() => this.onClick('disaggregated')}
+                    onClick={() => this.onClick('filledArea')}
                   >
-                    Bar Chart
+                    Area Chart
                   </Button>
                 </ButtonGroup>
               </ButtonToolbar>
