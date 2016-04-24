@@ -15,10 +15,10 @@ class User extends React.Component {
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere.</p>
         <Row>
-          <Col sm={6} md={3}>
+          <Col >
             <Button className='visualise' bsSize='large'>VISUALISE</Button>
           </Col>
-          <Col sm={6} md={3}>
+          <Col >
             <a href='/questionnaire'><Button className='questionnaire' bsSize='large'>QUESTIONNAIRE</Button></a>
           </Col>
         </Row>
